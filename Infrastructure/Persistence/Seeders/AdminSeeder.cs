@@ -19,11 +19,9 @@ namespace Infrastructure.Persistence.Seeders
 
             try
             {
-                if (!await context.Admin.AnyAsync())
+                if (!await context.Admins.AnyAsync())
                 {
-                    // Generate password hash for "Admin@123"
                     var (hash, salt) = UserHelper.GeneratePasswordHash("Admin@123");
-
                     var administrator = new Admin(
                         firstName: "System",
                         lastName: "Administrator",
@@ -32,19 +30,20 @@ namespace Infrastructure.Persistence.Seeders
                         passwordHash: hash,
                         hashSalt: salt,
                         gender: Gender.Male,
-                        userType : UserType.Admin,
+                        userType: UserType.Admin,
                         address: "System",
                         createdBy: "System",
                         createdDate: DateTime.UtcNow
                     );
 
-                   
 
-                    context.Admin.Add(administrator);
+
+                    context.Admins.Add(administrator);
 
                     await context.SaveChangesAsync();
                     logger.LogInformation("Administrator seeded successfully. Email: admin@studentreg.com, Password: Admin@123");
                 }
+                
             }
             catch (Exception ex)
             {

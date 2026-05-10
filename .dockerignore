@@ -1,0 +1,21 @@
+# flyctl launch added from .gitignore
+# Visual Studio
+**/.vs
+
+# Build results
+**/bin
+**/obj
+
+# User-specific files
+**/*.user
+**/*.suo
+**/*.cache
+
+# OS files
+**/.DS_Store
+**/Thumbs.db
+fly.toml
+
+
+
+

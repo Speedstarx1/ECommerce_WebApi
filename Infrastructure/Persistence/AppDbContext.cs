@@ -11,7 +11,7 @@ namespace Infrastructure.Persistence
         { }
 
         public DbSet<Customer> Customers => Set<Customer>();
-        public DbSet<Admin> Admin => Set<Admin>();
+        public DbSet<Admin> Admins => Set<Admin>();
         public DbSet<User> Users => Set<User>();
 
 

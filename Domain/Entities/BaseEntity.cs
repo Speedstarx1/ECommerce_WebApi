@@ -13,6 +13,6 @@ namespace Domain.Entities
         public string? UpdatedBy { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedDate { get; set; }
-        public bool IsDeleted { get; set; } = true;
+        public bool IsDeleted { get; set; } = false;
     }
 }

@@ -1,0 +1,31 @@
+app = 'ecommerceproject-webapi'
+primary_region = 'lhr'
+
+[build] 
+  dockerfile = "Dockerfile"
+
+[env]
+  ASPNETCORE_ENVIRONMENT = "Production"
+  ASPNETCORE_URLS = "http://0.0.0.0:8080"
+  JwtSettings__Issuer = "EcommerceWebAPI"
+  JwtSettings__Audience = "EcommerceWebAPI"
+  JwtSettings_ExpirationMinutes = "60"
+  SeedDatabase = "true"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
